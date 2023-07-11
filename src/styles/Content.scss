@@ -1,0 +1,228 @@
+//google fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+//mixins
+@mixin flex ($justify){
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+}
+
+//variables
+$headerColor: rgb(61, 61, 82);
+$redBackground: rgb(238, 68, 68);
+
+//content styles
+.content{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100vh - 8vh);
+    font-family: 'Popins', sans-serif;
+    color: #fff;
+
+    .row{
+        width: 100%;
+        height: calc(100vh - 8vh);
+        
+        .left{
+            width: 100%;
+            height: calc(100vh - 8vh);
+            background-color: $headerColor;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+
+            .heading{
+                font-size: 9vmin;
+                font-weight: 700;
+                margin: 20px 60px;
+            }
+
+            .sub-heading{
+                font-size: 2vmin;
+                margin: 20px 60px;
+                line-height: 30px;
+            }
+
+            .price{
+                font-size: 4vmin;
+                font-weight: 600;
+                margin: 20px 60px;
+            }
+
+            .add-btn{
+                padding: 15px 60px;
+                color: #fff;
+                background-color: $redBackground;
+                border: none;
+                margin: 10px 60px;
+
+                &:hover{
+                   box-shadow: 0.3rem 1.5rem 3rem rgb(49, 47, 47); 
+                }   
+            }
+        }
+
+        .right{
+            overflow: hidden;
+            width: 1000px;
+            height: calc(100vh - 8vh);
+            background-color: $redBackground;
+
+            .upperbox{
+                width: 974px;
+                height: 60%;
+                @include flex(center);
+
+                img{
+                    width: 700px;
+                    height: 500px;
+                    transform: rotate(-15deg);
+                }
+            }
+
+            .lowerbox{
+                width: 974px;
+                height: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .shoe{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img{
+                        width: 200px;
+                        cursor: pointer;
+                    }
+
+                    &:nth-child(1){
+                        width: 200px;
+                        transform: rotate(-15deg); 
+
+                        &::after{
+                            z-index: -1;
+                            position: absolute;
+                            content: '';
+                            width: 100px;
+                            height: 100px;
+                            background-color: rgb(218, 207, 228);
+                            transform: rotate(15deg);
+                            box-shadow: 0.3rem 1.5rem 3rem rgb(49, 47, 47);
+                        }
+                    }
+
+                    &:nth-child(2){
+                        width: 200px;
+                        transform: rotate(-15deg);
+
+                        &::after{
+                            z-index: -1;
+                            position: absolute;
+                            content: '';
+                            width: 100px;
+                            height: 100px;
+                            background-color: rgb(164, 194, 171);
+                            transform: rotate(15deg);
+                            box-shadow: 0.3rem 1.5rem 3rem rgb(49, 47, 47); 
+                        }
+                    }
+
+                    &:nth-child(3){
+                        width: 200px;
+                        transform: rotate(-15deg);
+
+                        &::after{
+                            z-index: -1;
+                            position: absolute;
+                            content: '';
+                            width: 100px;
+                            height: 100px;
+                            background-color: rgb(216, 122, 122);
+                            transform: rotate(15deg);
+                            box-shadow: 0.3rem 1.5rem 3rem rgb(49, 47, 47); 
+                        }
+                    }
+
+                    &:nth-child(4){
+                        width: 200px;
+                        transform: rotate(-15deg);
+
+                        &::after{
+                            z-index: -1;
+                            position: absolute;
+                            content: '';
+                            width: 100px;
+                            height: 100px;
+                            background-color: rgb(218, 207, 228);
+                            transform: rotate(15deg);
+                            box-shadow: 0.3rem 1.5rem 3rem rgb(49, 47, 47); 
+                        }
+                    }
+
+                    
+                }
+            }
+        }
+    }
+}
+
+//screen at 1000px
+@media (max-width:1000px) {
+    .content{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column-reverse !important;
+
+        .row{
+            z-index: -1;
+            .left{
+                margin-top: -75px;
+    
+                .heading{
+                  
+                }
+    
+                .sub-heading{
+                  
+                }
+    
+                .price{
+                   
+                }
+    
+                .add-btn{
+                    
+                }
+            }
+    
+            .right{
+    
+                .upperbox{
+    
+                    img{
+                        width: 600px;
+                        height: 400px;
+                    }
+                }
+    
+                .lowerbox{
+                    margin-top: -50px;
+    
+                    .shoe{
+                        img{
+                         z-index: 10;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

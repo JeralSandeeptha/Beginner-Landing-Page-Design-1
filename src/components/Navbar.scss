@@ -1,0 +1,115 @@
+//google fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+//mixins
+@mixin flex ($justify){
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+}
+
+//variables
+$headerColor: rgb(61, 61, 82);
+
+//navbar styles
+.navbar{
+    width: 100%;
+    height: 8vh;
+    background-color: $headerColor;
+    @include flex(space-between);
+
+    .logo{
+        margin-left: 150px;
+
+        img{
+            width: 130px;
+            cursor: pointer;
+        }
+    }
+
+    .icons{
+        @include flex(space-around);
+        margin-right: 150px;
+        width: 500px;
+
+        img{
+            width: 30px;
+            cursor: pointer;
+        }
+    }
+}
+
+// **************************** Responsive *****************************************
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+    .navbar{
+        
+        .icons{
+            display: none;
+        }  
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {
+    .navbar{
+
+        .logo{
+            position: relative;
+            left: -50px;
+        }
+        
+        .icons{
+            background-color: aqua;
+            width: 300px;
+        
+            img{
+                display: none;
+            }
+        }  
+     }
+}
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 992px) { }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (max-width: 1200px){
+    .navbar{
+  
+        .logo{
+            margin-left: 100px;
+        
+            img{
+                width: 90px;
+            }
+        }
+        
+        .icons{
+                width: 400px;
+                margin-right: 50px;
+                width: 300px;       
+        }  
+    }
+}
+
+// Extra larger devices (tv screens)
+@media (max-width: 1400px) { 
+.navbar{
+  
+    .logo{
+    
+        img{
+            width: 100px;
+        }
+    }
+    
+    .icons{
+            width: 400px;
+    
+        img{
+           width: 25px;
+        }
+    }  
+ }
+} 

@@ -1,0 +1,232 @@
+//google fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+//mixins
+@mixin flex ($justify){
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+}
+
+@mixin full-flex ($dispaly, $align-items, $justify-content, $direction) {
+    display: $dispaly;
+    align-items: $align-items;
+    justify-content: $justify-content;
+    flex-direction: $direction;
+}
+
+//variables
+$headerColor: rgb(61, 61, 82);
+
+//content styles
+.content{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    height: calc(100vh - 8vh);
+    font-family: 'Popins', sans-serif;
+    @include flex(space-between);
+
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar-thumb{
+        background-color: black;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar{
+        width: 0.5rem;
+        background-color: rgb(105, 97, 97);
+    }
+
+    .left{
+        max-width: 50%;
+        height: calc(100vh - 8vh);
+        background-color: $headerColor;
+        @include flex(center);
+        color: #fff;
+
+        .middle-container{
+            margin: 0px 100px;
+            height: 600px;
+            @include full-flex(flex, flex-start, center, column);
+
+            .title{
+                line-height: 80px;
+                font-weight: 800;
+                font-size: 75px;
+                align-self: flex-start;
+                margin-bottom: 20px;
+            }
+
+            .sub-title{
+                font-weight: 500;
+                align-self: flex-start;
+                margin-bottom: 40px;
+            }
+
+            .price{
+                font-weight: 700;
+                font-size: 40px;
+                align-self: flex-start;
+                margin-bottom: 20px;
+            }
+
+            .add-btn{
+                background-color: red;
+                padding: 15px 40px;
+                align-self: flex-start;
+                color: #fff;
+                font-weight: 800;
+                border: none;
+                border-radius: 2px;
+                cursor: pointer;
+
+                &:hover{
+                    transition: 1s all linear ease-in-out;
+                    box-shadow: 0.5rem 0.5rem 1rem rgb(27, 27, 27);
+                }
+            }
+        }
+    }
+
+    .right{
+        width: 50%;
+        height: calc(100vh - 8vh);
+        background-color: red;
+        
+        .upperbox{
+            width: 100%;
+            height: calc(100vh - 38vh);
+            @include flex(center);
+
+            img{
+                width: 750px;
+                height: 450px;
+                transform: rotate(-30deg);
+            }
+        }
+
+        .lowerbox{
+            width: 100%;
+            height: calc(30vh);
+            @include flex(space-evenly);
+            
+            img{
+                width: 150px;
+                transform: rotate(-30deg);
+
+                    &::after{
+                        z-index: -1;
+                        position: absolute;
+                        content: 'asdsa';
+                        width: 100px;
+                        height: 100px;
+                        background-color: rgb(65, 34, 94);
+                        transform: rotate(15deg);
+                        box-shadow: 0.3rem 1.5rem 3rem rgb(49, 47, 47);
+                    }
+            }   
+        }
+    }
+}
+
+// **************************** Responsive *****************************************
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {
+    .content{
+
+        .left{
+
+            .middle-container{
+
+                .title{
+
+                    span{
+                        align-self: center;
+                    }
+                }
+            }
+        }
+
+        .right{
+            .upperbox{
+                img{
+                    height: 300px;
+                    width: 500px;
+                }
+            }
+
+            .lowerbox{
+                display: flex;
+                img{
+                    width: 100px;
+                    flex-grow: 1;
+                }
+            }
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 992px) { 
+//no need
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (max-width: 1200px){
+    .content{
+        @include full-flex(flex, center, space-between, column);
+
+        .left{
+            min-width: 100%;
+            height: 92vh;
+            background-color: $headerColor;
+
+            .middle-container{
+                width: 100%;
+                height: 80vh;
+                @include full-flex(flex, center, center, column);
+
+                .title{
+                    align-self: center;
+                    margin-top: 50px;
+
+                    span{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: justify;
+                    }
+                }
+    
+                .sub-title{
+                    align-self: center;
+                    margin-bottom: 100px;
+                }
+    
+                .price{
+                    font-weight: 700;
+                    font-size: 40px;
+                    align-self: center;
+                    margin-bottom: 20px;
+                }
+    
+                .add-btn{
+                    align-self: center;               
+                }
+            }
+        }
+
+        .right{
+            width: 100%;
+        }
+    }
+}
